@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+	  xmlns:app="http://schemas.android.com/apk/res-auto">
+
+	<group android:checkableBehavior="single">
+		<item
+			android:id="@+id/nav_overall"
+			android:checked="true"
+			android:icon="@drawable/ic_view_grid_grey600_24dp"
+			android:title="@string/overall"/>
+		<item
+			android:id="@+id/nav_pa"
+			android:icon="@drawable/ic_select_all_grey600_24dp"
+			android:title="Primeros auxilios"/>
+		<item
+			android:id="@+id/nav_guard"
+			android:icon="@drawable/ic_filter_outline_grey600_24dp"
+			android:title="Guardias"/>
+		<item
+			android:id="@+id/nav_calendar"
+			android:icon="@drawable/ic_chart_gantt_grey600_24dp"
+			android:title="Calendario"/>
+
+
+	</group>
+
+	<item android:title="@string/about_title">
+		<menu>
+			<item
+				android:id="@+id/nav_about"
+				android:icon="@drawable/ic_info_grey600_24dp"
+				android:title="WEB-ADMIN"/>
+		</menu>
+	</item>
+
+</menu>
