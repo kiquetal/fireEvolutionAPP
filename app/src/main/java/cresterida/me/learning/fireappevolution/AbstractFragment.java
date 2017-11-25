@@ -28,7 +28,7 @@ public abstract class AbstractFragment extends Fragment {
     protected int mColumnCount = 2;
     protected RecyclerView mRecyclerView;
     protected FloatingActionButton mFab;
-
+    protected OnFragmentInteractionListener mListener;
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -64,6 +64,12 @@ public abstract class AbstractFragment extends Fragment {
     @SuppressWarnings("deprecation")
     public void onAttach(Activity activity) {
         super.onAttach(activity);
+        if (activity instanceof OnFragmentInteractionListener) {
+                         mListener = (OnFragmentInteractionListener) activity;
+                     } else {
+                         throw new RuntimeException(activity.toString() + " must implement OnFragmentInteractionListener");
+                     }
+
 
     }
 

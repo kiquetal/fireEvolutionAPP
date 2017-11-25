@@ -6,9 +6,11 @@ import android.support.annotation.RequiresApi
 import android.text.Spannable
 import android.text.SpannableStringBuilder
 import android.text.style.StyleSpan
+import android.util.Log
 import android.view.View
 import eu.davidea.flexibleadapter.FlexibleAdapter
 import eu.davidea.flexibleadapter.items.AbstractHeaderItem
+import eu.davidea.flexibleadapter.items.IFilterable
 import eu.davidea.flexibleadapter.items.IFlexible
 import eu.davidea.viewholders.FlexibleViewHolder
 
@@ -16,7 +18,11 @@ import eu.davidea.viewholders.FlexibleViewHolder
  * Created by kiquetal on 10/22/17.
  */
 import kotlinx.android.synthetic.main.catalogue_main_controller_card.view.*;
-data class GuardHeader(val name:String): AbstractHeaderItem<GuardHeader.Holder>(){
+data class GuardHeader(val name:String): AbstractHeaderItem<GuardHeader.Holder>(),IFilterable{
+    override fun filter(constraint: String?): Boolean {
+        return this.name.toLowerCase().trim().contains(constraint!!)
+    }
+
     override fun getLayoutRes(): Int {
         return R.layout.catalogue_main_controller_card
     }
@@ -47,8 +53,11 @@ data class GuardHeader(val name:String): AbstractHeaderItem<GuardHeader.Holder>(
         fun bind(guard:GuardHeader):Unit {
 
             itemView.title.text= guard.name
+            itemView.title.setOnClickListener(View.OnClickListener { view: View? -> Log.v("FireApp",itemView.title.text.toString()) })
 
         }
+
+
     }
 
 }
