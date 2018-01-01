@@ -13,7 +13,7 @@ import eu.davidea.viewholders.FlexibleViewHolder
 import kotlinx.android.synthetic.main.catalogue_main_controller_card_item.view.*
 
 
-data class GuardItem(val value:String, val header:GuardHeader): AbstractSectionableItem<GuardItem.ViewHolder, GuardHeader>(header),IFilterable
+data class CodeItem(val value:String, val header: CodeHeader): AbstractSectionableItem<CodeItem.ViewHolder, CodeHeader>(header),IFilterable
 {
     override fun filter(constraint: String?): Boolean {
         return this.value.toLowerCase().trim().contains(constraint!!) || this.getHeader().name.toLowerCase().trim().contains(constraint!!)
@@ -24,7 +24,7 @@ data class GuardItem(val value:String, val header:GuardHeader): AbstractSectiona
 
         if (this === other) return true
         if (javaClass != other?.javaClass) return false
-        return value == (other as GuardItem).value
+        return value == (other as CodeItem).value
 
     }
     override fun getLayoutRes()=R.layout.catalogue_main_controller_card_item
@@ -43,14 +43,14 @@ data class GuardItem(val value:String, val header:GuardHeader): AbstractSectiona
     class ViewHolder(view: View, adapter: FlexibleAdapter<*>): FlexibleViewHolder(view,adapter)
     {
 
-        fun bind(guardItem:GuardItem):Unit
+        fun bind(codeItem: CodeItem):Unit
         {
-            itemView.title.text=guardItem.value
+            itemView.title.text= codeItem.value
 
 
             itemView.setOnClickListener(View.OnClickListener { view: View? -> Log.v("FireApp",itemView.title.text.toString()) })
-            FlexibleUtils.highlightText(itemView.title, guardItem.value, this@ViewHolder.mAdapter.searchText);
-      //      FlexibleUtils.highlightWords(guardItem.header.name, getSubtitle(), adapter.getSearchText());
+            FlexibleUtils.highlightText(itemView.title, codeItem.value, this@ViewHolder.mAdapter.searchText);
+      //      FlexibleUtils.highlightWords(codeItem.header.name, getSubtitle(), adapter.getSearchText());
 
 
 

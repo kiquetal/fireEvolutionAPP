@@ -123,7 +123,7 @@ class MainActivity : AppCompatActivity(), OnNavigationItemSelectedListener,OnFra
 
             R.id.nav_guard -> mFragment=HolderFragment()
             else -> {
-                Log.v("FireApp","No se enctron el menu!!!")
+                Log.v("FireApp","No se encontró  el menu!!!")
             }
         }
 
@@ -137,7 +137,8 @@ class MainActivity : AppCompatActivity(), OnNavigationItemSelectedListener,OnFra
             manager.beginTransaction().replace(R.id.recycler_view_container,mFragment).commit()
             if (mRecyclerView!=null)
             mRecyclerView!!.post(Runnable { mDrawer!!.closeDrawer(GravityCompat.START) })
-
+            else
+                mDrawer.let { drawerLayout -> drawerLayout!!.closeDrawer(GravityCompat.START)  }
             return true
 
         }
@@ -186,13 +187,6 @@ class MainActivity : AppCompatActivity(), OnNavigationItemSelectedListener,OnFra
             var navigationItemSelectedListener = mNavigationiew?.setNavigationItemSelectedListener(this)
             Log.v("FireAppEvolution","iniciando drawer")
         }
-
-
-
     var mSearchView: SearchView? =null
-
-
-    
-
 
     }
