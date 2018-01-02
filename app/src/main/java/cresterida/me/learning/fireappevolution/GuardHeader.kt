@@ -97,8 +97,9 @@ class GuardHeader(id: String) : AbstractItem<GuardHeader.ExpandableHeaderViewHol
             Log.d(this.javaClass.simpleName, "ExpandableHeaderItem NoPayload - " + getTitle())
             holder.mTitle.setText(getTitle())
         }
-        setSubtitle(adapter.getCurrentChildren(this).size.toString() +
-                " subItems (" + (if (isExpanded) "expanded" else "collapsed") + ")")
+      //  setSubtitle(adapter.getCurrentChildren(this).size.toString() +
+       //         " subItems (" + (if (isExpanded) "expanded" else "collapsed") + ")")
+     //   setSubtitle("BVC 307 David Noguera")
         holder.mSubtitle.setText(getSubtitle())
     }
 

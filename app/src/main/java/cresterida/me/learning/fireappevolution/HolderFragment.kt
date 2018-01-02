@@ -71,7 +71,7 @@ class HolderFragment: AbstractFragment(){
         recycler.adapter=adapter
         recycler.setHasFixedSize(true)
         mListener.onFragmentChange(null,recycler,Mode.IDLE)
-        Log.v("","Holderragment")
+        Log.v("FireApp","Holderragment")
     }
 }
 

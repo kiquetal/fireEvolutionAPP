@@ -121,8 +121,9 @@ class MainActivity : AppCompatActivity(), OnNavigationItemSelectedListener,OnFra
         Log.d("FireAppEvolution",id.toString())
         when (id) {
 
-            R.id.nav_guard -> mFragment=HolderFragment()
-            else -> {
+            R.id.nav_guard -> mFragment=GuardFragment()
+            R.id.nav_codes -> mFragment=HolderFragment()
+             else -> {
                 Log.v("FireApp","No se encontró  el menu!!!")
             }
         }
