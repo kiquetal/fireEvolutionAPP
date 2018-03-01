@@ -123,6 +123,7 @@ class MainActivity : AppCompatActivity(), OnNavigationItemSelectedListener,OnFra
 
             R.id.nav_guard -> mFragment=GuardFragment()
             R.id.nav_codes -> mFragment=HolderFragment()
+            R.id.nav_calendar -> mFragment=WeekFragment()
              else -> {
                 Log.v("FireApp","No se encontró  el menu!!!")
             }
@@ -136,9 +137,10 @@ class MainActivity : AppCompatActivity(), OnNavigationItemSelectedListener,OnFra
         //    mAdapter!!.onDetachedFromRecyclerView(mRecyclerView)
             val manager = supportFragmentManager
             manager.beginTransaction().replace(R.id.recycler_view_container,mFragment).commit()
-            if (mRecyclerView!=null)
-            mRecyclerView!!.post(Runnable { mDrawer!!.closeDrawer(GravityCompat.START) })
-            else
+            if (mRecyclerView!=null) {
+                mRecyclerView!!.post(Runnable { mDrawer!!.closeDrawer(GravityCompat.START) })
+                mDrawer.let { drawerLayout -> drawerLayout!!.closeDrawer(GravityCompat.START)  }
+            }else
                 mDrawer.let { drawerLayout -> drawerLayout!!.closeDrawer(GravityCompat.START)  }
             return true
 
